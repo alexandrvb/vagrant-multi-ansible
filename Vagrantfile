@@ -78,10 +78,12 @@ Vagrant.configure("2") do |config|
     vm1.vm.provision "ansible" do |ansible|
       ansible.playbook = "vm.yml"
     end
+    vm1.vm.network "private_network", ip: "192.168.100.11"
   end
   config.vm.define "vm2" do |vm2|
     vm2.vm.provision "ansible" do |ansible|
       ansible.playbook = "vm.yml"
     end
+    vm2.vm.network "private_network", ip: "192.168.100.12"
   end
 end
